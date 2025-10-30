@@ -12,14 +12,10 @@ class TarefaController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Tarefa::query();
+        $query = Tarefa::where('user_id', auth()->id());
 
         if ($request->filled('status')) {
             $query->where('status', $request->status);
-        }
-
-        if (auth()->check()) {
-            $query->where('user_id', auth()->id());
         }
 
         $tarefas = $query->latest()->paginate(10);
@@ -40,10 +36,7 @@ class TarefaController extends Controller
     public function store(StoreTarefaRequest $request)
     {
         $data = $request->validated();
-
-        if (auth()->check()) {
-            $data['user_id'] = auth()->id();
-        }
+        $data['user_id'] = auth()->id();
 
         Tarefa::create($data);
 
@@ -59,7 +52,7 @@ class TarefaController extends Controller
 
     public function edit(Tarefa $tarefa)
     {
-        if (auth()->check() && $tarefa->user_id !== auth()->id()) {
+        if ($tarefa->user_id !== auth()->id()) {
             abort(403, 'Você não tem permissão para editar esta tarefa.');
         }
 
@@ -71,7 +64,7 @@ class TarefaController extends Controller
 
     public function update(UpdateTarefaRequest $request, Tarefa $tarefa)
     {
-        if (auth()->check() && $tarefa->user_id !== auth()->id()) {
+        if ($tarefa->user_id !== auth()->id()) {
             abort(403, 'Você não tem permissão para atualizar esta tarefa.');
         }
 
@@ -84,7 +77,7 @@ class TarefaController extends Controller
 
     public function destroy(Tarefa $tarefa)
     {
-        if (auth()->check() && $tarefa->user_id !== auth()->id()) {
+        if ($tarefa->user_id !== auth()->id()) {
             abort(403, 'Você não tem permissão para excluir esta tarefa.');
         }
 

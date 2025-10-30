@@ -10,6 +10,14 @@
     <nav class="navbar">
         <div class="container">
             <h1><a href="{{ route('tarefas.index') }}">Tarefas</a></h1>
+            
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <span style="color: white;">{{ auth()->user()->name }}</span>
+                <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
+                    @csrf
+                    <button type="submit" class="btn btn-sm btn-secondary">Sair</button>
+                </form>
+            </div>
         </div>
     </nav>
 

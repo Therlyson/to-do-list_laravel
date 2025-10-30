@@ -15,11 +15,8 @@ Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('tarefas', TarefaController::class);
-
-// Para implementar autenticação:
-// Route::middleware(['auth'])->group(function () {
-//     Route::resource('tarefas', TarefaController::class);
-// });
+Route::middleware(['auth'])->group(function () {
+    Route::resource('tarefas', TarefaController::class);
+});
 
 require __DIR__.'/settings.php';

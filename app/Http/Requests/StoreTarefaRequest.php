@@ -19,7 +19,7 @@ class StoreTarefaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'titulo' => ['required', 'string'],
+            'titulo' => ['required', 'string', 'max:255'],
             'descricao' => ['nullable', 'string'],
             'status' => ['required', Rule::enum(StatusTarefa::class)],
         ];
@@ -30,6 +30,7 @@ class StoreTarefaRequest extends FormRequest
         return [
             'titulo.required' => 'O campo título é obrigatório.',
             'titulo.string' => 'O título deve ser um texto válido.',
+            'titulo.max' => 'O título não pode exceder 255 caracteres.',
             'descricao.string' => 'A descrição deve ser um texto válido.',
             'status.required' => 'O campo status é obrigatório.',
             'status.enum' => 'O status selecionado é inválido.',

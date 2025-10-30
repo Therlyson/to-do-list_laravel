@@ -20,7 +20,7 @@ Sistema de gerenciamento de tarefas (To-Do List) desenvolvido com Laravel 12.
 
 ```bash
 git clone <url-do-repositorio>
-cd to-do-list
+cd to-do-list_laravel
 ```
 
 ### 2. Instale as dependências do PHP

@@ -16,7 +16,7 @@
 
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">
-                    💾 Salvar Tarefa
+                    Salvar Tarefa
                 </button>
                 <a href="{{ route('tarefas.index') }}" class="btn btn-secondary">
                     ← Cancelar

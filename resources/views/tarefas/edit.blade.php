@@ -17,7 +17,7 @@
 
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">
-                    💾 Atualizar Tarefa
+                    Atualizar Tarefa
                 </button>
                 <a href="{{ route('tarefas.index') }}" class="btn btn-secondary">
                     ← Cancelar

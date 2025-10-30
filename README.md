@@ -1,25 +1,146 @@
-# Laravel + Vue Starter Kit
+# 📋 TO DO LIST - LARAVEL
 
-## Introduction
+Sistema de gerenciamento de tarefas (To-Do List) desenvolvido com Laravel 12.
 
-Our Vue starter kit provides a robust, modern starting point for building Laravel applications with a Vue frontend using [Inertia](https://inertiajs.com).
+## 📦 Requisitos## Code of Conduct
 
-Inertia allows you to build modern, single-page Vue applications using classic server-side routing and controllers. This lets you enjoy the frontend power of Vue combined with the incredible backend productivity of Laravel and lightning-fast Vite compilation.
+- PHP 8.2 ou superiorIn order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-This Vue starter kit utilizes Vue 3 and the Composition API, TypeScript, Tailwind, and the [shadcn-vue](https://www.shadcn-vue.com) component library.
+- Composer
 
-## Official Documentation
+- Node.js 18+ e NPM## License
 
-Documentation for all Laravel starter kits can be found on the [Laravel website](https://laravel.com/docs/starter-kits).
+- SQLite (já incluído no PHP)
 
-## Contributing
+---
 
-Thank you for considering contributing to our starter kit! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Instalação
 
-## Code of Conduct
+### 1. Clone o repositório
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+git clone <url-do-repositorio>
+cd to-do-list
+```
 
-## License
+### 2. Instale as dependências do PHP
 
-The Laravel + Vue starter kit is open-sourced software licensed under the MIT license.
+```bash
+composer install
+```
+
+### 3. Instale as dependências do Node
+
+```bash
+npm install
+```
+
+### 4. Configure o ambiente
+
+```bash
+# Copie o arquivo de exemplo
+cp .env.example .env
+
+# Gere a chave da aplicação
+php artisan key:generate
+```
+
+### 5. Configure o banco de dados
+
+O projeto já está configurado para usar SQLite. O arquivo `.env` deve conter:
+
+```env
+DB_CONNECTION=sqlite
+```
+
+O arquivo do banco já existe em `database/database.sqlite`
+
+### 6. Execute as migrations
+
+```bash
+php artisan migrate
+```
+
+### 7. Compile os assets
+
+```bash
+npm run build
+```
+
+---
+
+## Como Rodar
+
+### Servidor de Desenvolvimento
+
+```bash
+php artisan serve
+```
+
+A aplicação estará disponível em: `http://127.0.0.1:8000`
+
+---
+
+## Como Usar
+
+### 1. Criar uma conta
+
+- Acesse `http://127.0.0.1:8000`
+- Clique em "Criar conta"
+- Preencha: nome, e-mail e senha
+- Clique em "Criar Conta"
+
+### 2. Fazer login
+
+- Acesse `http://127.0.0.1:8000/login`
+- Preencha e-mail e senha
+- Clique em "Entrar"
+
+### 3. Gerenciar tarefas
+
+- Crie novas tarefas com título e descrição
+- Marque como "Pendente" ou "Concluída"
+- Edite ou exclua tarefas existentes
+- Filtre por status
+- Navegue pela lista
+
+---
+
+## Decisões
+
+### **Por que Enum (StatusTarefa)?**
+
+- Type safety nativa do PHP 8.2
+- Métodos auxiliares (`label()`, `badge()`)
+
+### **Por que FormRequests?**
+
+- Separação de responsabilidades
+- Validações reutilizáveis e testáveis
+- Controllers mais limpos e focados
+
+### **Por que SQLite?**
+
+- Zero configuração
+- Portabilidade total
+- Ideal para desenvolvimento e demonstração
+
+---
+
+## Melhorias Futuras
+
+- [ ] **Políticas (Policies)** - Melhor autorização com Laravel Policies
+- [ ] **Ordenação** - Permitir ordenar por data, título ou status
+- [ ] **Busca** - Campo de busca por título
+- [ ] **Categorias** - Organizar tarefas em categorias/projetos
+- [ ] **Prioridades** - Adicionar níveis de prioridade (alta, média, baixa)
+- [ ] **Data de Vencimento** - Prazos e alertas de tarefas vencidas
+- [ ] **Notificações** - E-mails de lembrete
+- [ ] **Compartilhamento** - Permitir compartilhar tarefas com outros usuários
+- [ ] **Anexos** - Upload de arquivos nas tarefas
+
+---
+
+**Tecnologias:** Laravel 12, PHP 8.2, SQLite, Blade, Fortify, PHPUnit
+
+---

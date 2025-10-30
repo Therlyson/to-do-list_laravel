@@ -9,7 +9,7 @@
 <body>
     <nav class="navbar">
         <div class="container">
-            <h1><a href="/">📋 Tarefas</a></h1>
+            <h1><a href="/">Gerenciador de Tarefas</a></h1>
         </div>
     </nav>
 
@@ -23,9 +23,5 @@
             </div>
         </div>
     </main>
-
-    <footer class="footer">
-        <p>&copy; {{ date('Y') }} Gerenciador de Tarefas - Laravel</p>
-    </footer>
 </body>
 </html>

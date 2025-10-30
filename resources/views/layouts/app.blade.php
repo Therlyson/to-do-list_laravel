@@ -9,7 +9,7 @@
 <body>
     <nav class="navbar">
         <div class="container">
-            <h1><a href="{{ route('tarefas.index') }}">Tarefas</a></h1>
+            <h1><a href="{{ route('tarefas.index') }}">Gerenciador de Tarefas</a></h1>
             
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <span style="color: white;">{{ auth()->user()->name }}</span>
@@ -26,10 +26,6 @@
 
         @yield('content')
     </main>
-
-    <footer class="footer">
-        <p>&copy; {{ date('Y') }} Gerenciador de Tarefas - Laravel</p>
-    </footer>
 
     @stack('scripts')
 </body>
